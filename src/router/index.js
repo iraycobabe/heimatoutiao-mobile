@@ -5,7 +5,11 @@ Vue.use(VueRouter)
 
 // 配置自己的路由规则
 const routes = [
-
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login/index.vue')
+  }
 ]
 
 const router = new VueRouter({

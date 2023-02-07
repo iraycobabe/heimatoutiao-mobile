@@ -18,5 +18,7 @@ module.exports = {
     "vue/no-unused-components": "off", // 当存在定义而未使用的组件时，关闭报错
     "no-unused-vars":"off", // 当存在定义而未使用的变量时，关闭报错
     "no-trailing-spaces":"off",//这禁止掉 行尾空格
+    'semi': 0,// 不检查；分号
+    'eol-last': 0, // 取消最后一个空行的规则校验
   }
 }
