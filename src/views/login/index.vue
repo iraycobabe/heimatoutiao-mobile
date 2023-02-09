@@ -2,7 +2,9 @@
   <div>
     <div class="login-container">
       <!-- 导航栏 -->
-      <van-nav-bar title="登录" class="page-nav-bar"/>
+      <van-nav-bar title="登录" class="page-nav-bar">
+        <van-icon slot="left" name="cross" @click="$router.back()"/>
+      </van-nav-bar>
       <!-- 登录表单 -->
       <!-- 通过 ref 可以获取到 Form 实例并调用实例方法 -->
       <van-form ref="loginForm" @submit="onSubmit">
@@ -113,9 +115,12 @@ export default {
       // 3.提交表单请求登录
       try {
         const { data } = await login(user)
-        // 登录成功以后将后端返回的 token 相关数据存储到容器中
+        //  登录成功以后将后端返回的 token 相关数据存储到容器中
         this.$store.commit('setUser', data.data)
         this.$toast.success('登录成功') 
+        // 登录成功，跳转回个人中心页面
+        // back方式不严谨，后边优化
+        this.$router.back()
         // Toast 默认采用单例模式，即同一时间只会存在一个 Toast，下一个Toast出现上一个会停用
       } catch (err) {
         if (err.response.status === 400) {
