@@ -1,7 +1,18 @@
 <template>
   <div>
     <van-cell-group>
-      <van-cell class="article-item">
+      <van-cell 
+        class="article-item" 
+        is-link :to="{
+          // name 根据路由名称进行跳转
+          name: 'article',
+          // params 传递路由动态参数
+          params: {
+            // 属性名：路由路径中设计的动态参数名称
+            articleId: article.art_id
+          }
+        }"
+      >
         <!-- class="van-multi-ellipsis--l2" 最多显示两行的文字，多余的内容会被省略-->
         <div slot="title" class="title van-multi-ellipsis--l2">
           {{ article.title }}
