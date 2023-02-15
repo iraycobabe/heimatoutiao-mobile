@@ -24,7 +24,10 @@ module.exports = {
         },
         // 配置要转换的css属性
         // *表示所有属性 比如：height width
-        propList: ['*']
+        propList: ['*'],
+
+        // 排除不要转换的样式资源
+        exclude: 'github-markdown.css'
       }
     }
   }
